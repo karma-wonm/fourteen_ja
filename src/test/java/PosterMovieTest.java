@@ -55,9 +55,6 @@ public class PosterMovieTest {
         PurchaseItem[] actual = movie.findLast();
 
         Assertions.assertArrayEquals(expected, actual);
-
-
-
     }
 
     @Test
@@ -80,8 +77,5 @@ public class PosterMovieTest {
         PurchaseItem[] actual = movie.findLast();
 
         Assertions.assertArrayEquals(expected, actual);
-
-
-
     }
 }
