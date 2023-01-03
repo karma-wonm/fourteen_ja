@@ -3,22 +3,22 @@ import org.junit.jupiter.api.Test;
 
 public class PosterMovieTest {
 
-    PurchaseItem item1 = new PurchaseItem("jojo");
-    PurchaseItem item2 = new PurchaseItem("lolo");
-    PurchaseItem item3 = new PurchaseItem("koko");
-    PurchaseItem item4 = new PurchaseItem("popo");
-    PurchaseItem item5 = new PurchaseItem("momo");
-    PurchaseItem item6 = new PurchaseItem("nono");
-    PurchaseItem item7 = new PurchaseItem("bobo");
-    PurchaseItem item8 = new PurchaseItem("vovo");
-    PurchaseItem item9 = new PurchaseItem("xoxo");
-    PurchaseItem item10 = new PurchaseItem("dodo");
+    PurchaseItem item1 = new PurchaseItem("jojo", 1);
+    PurchaseItem item2 = new PurchaseItem("lolo", 2);
+    PurchaseItem item3 = new PurchaseItem("koko", 3);
+    PurchaseItem item4 = new PurchaseItem("popo", 4);
+    PurchaseItem item5 = new PurchaseItem("momo", 5);
+    PurchaseItem item6 = new PurchaseItem("nono",6);
+    PurchaseItem item7 = new PurchaseItem("bobo",7);
+    PurchaseItem item8 = new PurchaseItem("vovo",8);
+    PurchaseItem item9 = new PurchaseItem("xoxo",9);
+    PurchaseItem item10 = new PurchaseItem("dodo",10);
 
     PosterMovie poster = new PosterMovie();
 
     @Test
     void AddNewMovie() {
-        PurchaseItem item = new PurchaseItem("mind");
+        PurchaseItem item = new PurchaseItem("mind", 0);
         poster.save(item1);
         poster.save(item);
         PurchaseItem[] expected = {item1, item};
@@ -29,7 +29,7 @@ public class PosterMovieTest {
 
     @Test
     void findAll() {
-        PurchaseItem item = new PurchaseItem("mind");
+        PurchaseItem item = new PurchaseItem("mind",0);
         poster.save(item1);
         poster.save(item2);
         poster.save(item3);
@@ -42,7 +42,7 @@ public class PosterMovieTest {
 
     @Test
     void findLast() {
-        PurchaseItem item = new PurchaseItem("mind");
+        PurchaseItem item = new PurchaseItem("mind", 0);
         int lastMovie = 3;
         PosterMovie movie = new PosterMovie(3);
         movie.save(item1);
@@ -59,7 +59,7 @@ public class PosterMovieTest {
 
     @Test
     void findLastNoParameter() {
-        PurchaseItem item = new PurchaseItem("mind");
+        PurchaseItem item = new PurchaseItem("mind", 0);
         poster.save(item1);
         poster.save(item2);
         poster.save(item3);
