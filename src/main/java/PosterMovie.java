@@ -2,12 +2,14 @@ public class PosterMovie {
     private int lastMovie = 10;
     private PurchaseItem[] items = new PurchaseItem[0];
 
-    public PosterMovie(int lastMovie) {
-        this.lastMovie = lastMovie;
-    }
+
 
     public PosterMovie() {
 
+    }
+
+    public PosterMovie(int lastMovie) {
+        this.lastMovie = lastMovie;
     }
 
     public void save(PurchaseItem item) {
@@ -31,4 +33,38 @@ public class PosterMovie {
 
         return items;
     }
+
+    public PurchaseItem findById(int idItems) {
+        PurchaseItem find = new PurchaseItem(null, 0 );
+        for (PurchaseItem item : items) {
+            if (idItems == item.getId()) {
+                find = item;
+            }
+        }
+        return find;
+    }
+    public void removeById(int idItems) {
+        PurchaseItem remove = new PurchaseItem(null, 0);
+        if (remove != findById(idItems)) {
+            PurchaseItem[] tmp = new PurchaseItem[items.length - 1];
+            int itemsId = 0;
+            for (PurchaseItem item : items) {
+                if (idItems != item.getId()) {
+                    tmp[itemsId] = item;
+                    itemsId++;
+                }
+            }
+            items = tmp;
+        }else {
+            return;
+        }
+    }
+
+
+    void removeAll() {
+        PurchaseItem[] tmp = new PurchaseItem[items.length];
+        items = tmp;
+    }
+
+
 }
