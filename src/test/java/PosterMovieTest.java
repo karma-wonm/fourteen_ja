@@ -41,7 +41,7 @@ public class PosterMovieTest {
     }
 
     @Test
-    void findLast() {
+    void findLastPurchaseItemMoreLimit() {
         PurchaseItem item = new PurchaseItem("mind");
         int lastMovie = 3;
         PosterMovie movie = new PosterMovie(lastMovie);
@@ -56,6 +56,42 @@ public class PosterMovieTest {
 
         Assertions.assertArrayEquals(expected, actual);
     }
+    @Test
+    void findLastPurchaseItemUnderLimit(){
+        PurchaseItem item = new PurchaseItem("mind");
+        int lastMovie = 8;
+        PosterMovie movie = new PosterMovie(lastMovie);
+        movie.save(item1);
+        movie.save(item2);
+        movie.save(item3);
+        movie.save(item4);
+        movie.save(item);
+
+        PurchaseItem[] expected ={item, item4, item3, item2, item1};
+        PurchaseItem[] actual = movie.findLast();
+
+        Assertions.assertArrayEquals(expected, actual);
+
+    }
+
+    @Test
+    void findLastPurchaseItemEqualsLimit(){
+        PurchaseItem item = new PurchaseItem("mind");
+        int lastMovie = 5;
+        PosterMovie movie = new PosterMovie(lastMovie);
+        movie.save(item1);
+        movie.save(item2);
+        movie.save(item3);
+        movie.save(item4);
+        movie.save(item);
+
+        PurchaseItem[] expected ={item, item4, item3, item2, item1};
+        PurchaseItem[] actual = movie.findLast();
+
+        Assertions.assertArrayEquals(expected, actual);
+
+    }
+
 
     @Test
     void findLastNoParameter() {

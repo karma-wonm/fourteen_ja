@@ -20,6 +20,9 @@ public class PosterMovie {
     }
 
     public PurchaseItem[] findLast() {
+        if (lastMovie > items.length){
+            lastMovie = items.length;
+        }
         PurchaseItem[] last = new PurchaseItem[lastMovie];
         for (int i = 0; i < lastMovie; i++) {
             last[i] = items[items.length - 1 - i];
